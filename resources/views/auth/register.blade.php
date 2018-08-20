@@ -1,5 +1,11 @@
 @extends('main')
+
 @section('title', 'Register')
+
+@section('style')
+    {!!Html::style('css/parsley.css')!!}
+@endsection
+
 @section('content')
 	<div class="row justify-content-center">
 		<div class="col-md-6">
@@ -22,4 +28,8 @@
 			<p class="text-center">Already have an account? <a href="{{url('auth/login')}}">Login</a></p>
 		</div>
 	</div>
+@endsection
+
+@section('script')
+    {!!Html::script('js/parsley.min.js')!!}
 @endsection
