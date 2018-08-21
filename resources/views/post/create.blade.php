@@ -5,6 +5,14 @@
 @section('style')
 	{!!Html::style('css/parsley.css')!!}
 	{!!Html::style('css/select2.min.css')!!}
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+  	<script>
+  		tinymce.init({
+  			selector:'textarea',
+  			menubar: false,
+  			plugins: 'lists image imagetools link'
+  		});
+  	</script>
 @endsection
 
 @section('content')
@@ -24,7 +32,7 @@
 			    {!!Form::select('tags[]', $tags, null, array('class' => 'form-control select2-multiple', 'multiple' => 'multiple'))!!}
 
 			    {!!Form::label('body', 'Body:')!!}
-			    {!!Form::textarea('body', null, array('class' => 'form-control', 'required' => ''))!!}
+			    {!!Form::textarea('body', null, array('class' => 'form-control', ))!!}
 
 			    {!!Form::submit('Create Post', array('class' => 'btn btn-primary btn-block', 'style' => 'margin-top:20px'))!!}
 			{!! Form::close() !!}

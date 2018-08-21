@@ -21,7 +21,7 @@
 			    <tr>
 			      <th scope="row">{{$post->id}}</th>
 			      <td>{{substr($post->title, 0, 20)}}{{strlen($post->title)>20 ? '...':''}}</td>
-			      <td>{{substr($post->body, 0, 40)}}{{strlen($post->body)>40 ? '...':''}}</td>
+			      <td>{{substr(strip_tags($post->body), 0, 40)}}{{strlen(strip_tags($post->body))>40 ? '...':''}}</td>
 			      <td>{{date('M j, Y h:i A', strtotime($post->created_at))}}</td>
 			      <td>{{date('M j, Y h:i A', strtotime($post->updated_at))}}</td>
 			      <td>

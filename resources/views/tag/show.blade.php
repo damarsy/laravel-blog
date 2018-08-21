@@ -1,5 +1,6 @@
 @extends('main')
-@section('title', "$tag->name Tag")
+<?php $tag_name = htmlspecialchars($tag->name)?>
+@section('title', "$tag_name Tag")
 @section('content')
 	<div class="row">
 		<div class="col-md-12">
@@ -18,7 +19,7 @@
 			    <tr>
 			      <th scope="row">{{$post->id}}</th>
 			      <td>{{substr($post->title, 0, 20)}}{{strlen($post->title)>20 ? '...':''}}</td>
-			      <td>{{substr($post->body, 0, 40)}}{{strlen($post->body)>40 ? '...':''}}</td>
+			      <td>{{substr(strip_tags($post->body), 0, 40)}}{{strlen(strip_tags($post->body))>40 ? '...':''}}</td>
 			      <td>
 			      	@foreach($post->tags as $tag)
 						<span class="badge badge-primary">{{$tag->name}}</span>
