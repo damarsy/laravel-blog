@@ -13,7 +13,7 @@
 			      <th scope="col">Body</th>
 			      <th scope="col">Created At</th>
 			      <th scope="col">Updated At</th>
-			      <th scope="col"></th>
+			      <th scope="col" width="17%"></th>
 			    </tr>
 			  </thead>
 			  <tbody>

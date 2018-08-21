@@ -27,8 +27,8 @@
 			    {!!Form::label('body', 'Body:')!!}
 			    {!!Form::textarea('body', null, array('class' => 'form-control', 'required' => ''))!!}
 
-			    {!!Form::submit('Save Post', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top:20px'))!!}
-			    <a href="{{route('post.show', $post->id)}}" class="btn btn-danger btn-block">Cancel</a>
+			    {!!Form::submit('Save Post', array('class' => 'btn btn-primary btn-block', 'style' => 'margin-top:20px'))!!}
+			    <a href="{{route('post.show', $post->id)}}" class="btn btn-primary btn-block">Cancel</a>
 			{!! Form::close() !!}
 		</div>
 	</div>

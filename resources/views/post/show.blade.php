@@ -22,4 +22,35 @@
 			<a href="{{route('post.index')}}" class="btn btn-primary btn-block" style="margin-top:5px">See All Posts</a>
 		</div>
 	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Comment</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($post->comments as $comment)
+					<tr>
+						<th>{{$comment->id}}</th>
+						<td>{{$comment->name}}</td>
+						<td>{{$comment->email}}</td>
+						<td>{{$comment->comment}}</td>
+						<td>
+							{!!Form::open(['route' => ['comment.destroy', $comment->id], 'method' => 'DELETE'])!!}
+								{!!Form::submit('Delete', array('class' => 'btn btn-sm btn-primary'))!!}
+							{!!Form::close()!!}
+						</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
+	</div>
 @endsection

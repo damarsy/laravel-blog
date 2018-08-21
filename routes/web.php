@@ -10,33 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//route for blog tags
-Route::get('blog/tag/{slug}', array('as' => 'blog.tag', 'uses' => 'BlogController@getTag'));
 
-//route for CRUD of tags
-Route::resource('tag', 'TagController', ['except' => ['edit', 'update']]);
-
-//route for CRUD of categories
-Route::resource('category', 'CategoryController', ['except' => ['edit', 'update']]);
-
-//route for blog categories
-Route::get('blog/category/{slug}', array('as' => 'blog.category', 'uses' => 'BlogController@getCategory'));
 
 //route for authentication
 Auth::routes();
 
+//route for blog tags
+Route::get('blog/tag/{slug}', array('as' => 'blog.tag', 'uses' => 'BlogController@getTag'));
+//route for blog categories
+Route::get('blog/category/{slug}', array('as' => 'blog.category', 'uses' => 'BlogController@getCategory'));
 //route for showing posts using slug
 Route::get('blog/{slug}', array('as' => 'blog.show', 'uses' => 'BlogController@getShow'));
 
+//route for CRUD of tags
+Route::resource('tag', 'TagController', ['except' => ['edit', 'update']]);
+//route for CRUD of categories
+Route::resource('category', 'CategoryController', ['except' => ['edit', 'update']]);
 //route for CRUD of posts
 Route::resource('post', 'PostController');
+//route for CRUD of comments
+Route::post('comment/{post_slug}', ['as' => 'comment.store', 'uses' => 'CommentController@store']);
+Route::delete('comment/{id}', ['as' => 'comment.destroy', 'uses' => 'CommentController@destroy']);
 
 //route for contact page
 Route::get('contact', 'PageController@getContact');
 Route::post('contact', 'PageController@postContact');
-
 //route for about page
 Route::get('about', 'PageController@getAbout');
-
 //route for home page
 Route::get('/', 'PageController@getIndex');
