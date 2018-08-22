@@ -19,7 +19,7 @@
 @section('content')
 	<div class="row justify-content-center">
 		<div class="col-md-8">
-			{!! Form::model($post, ['route' => array('post.update', $post->id), 'data-parsley-validate' => '', 'method' => 'PUT']) !!}
+			{!! Form::model($post, ['route' => array('post.update', $post->id), 'data-parsley-validate' => '', 'method' => 'PUT', 'files' => true]) !!}
 			    {!!Form::label('title', 'Title:')!!}
 			    {!!Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255'))!!}
 
@@ -32,9 +32,12 @@
 			    {!!Form::label('tags', 'Tag:')!!}
 			    {!!Form::select('tags[]', $tags, null, array('class' => 'form-control select2-multiple', 'multiple' => 'multiple'))!!}
 
+			    {!!Form::label('featured_image', 'Upload Image:')!!}
+			    {!!Form::file('featured_image', array('style' => 'margin-top:10px'))!!}
+				<br>
 			    {!!Form::label('body', 'Body:')!!}
 			    {!!Form::textarea('body', null, array('class' => 'form-control', 'required' => ''))!!}
-
+				
 			    {!!Form::submit('Save Post', array('class' => 'btn btn-primary btn-block', 'style' => 'margin-top:20px'))!!}
 			    <a href="{{route('post.show', $post->id)}}" class="btn btn-primary btn-block">Cancel</a>
 			{!! Form::close() !!}
