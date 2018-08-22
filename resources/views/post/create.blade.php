@@ -18,7 +18,7 @@
 @section('content')
 	<div class="row justify-content-center">
 		<div class="col-md-8">
-			{!! Form::open(['route' => 'post.store', 'data-parsley-validate' => '']) !!}
+			{!! Form::open(['route' => 'post.store', 'files' => true, 'data-parsley-validate' => '']) !!}
 			    {!!Form::label('title', 'Title:')!!}
 			    {!!Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255'))!!}
 
@@ -31,8 +31,11 @@
 			    {!!Form::label('tags', 'Tag:')!!}
 			    {!!Form::select('tags[]', $tags, null, array('class' => 'form-control select2-multiple', 'multiple' => 'multiple'))!!}
 
+			    {!!Form::label('featured_image', 'Upload Image:')!!}
+			    {!!Form::file('featured_image', array('style' => 'margin:10px'))!!}
+				<br>
 			    {!!Form::label('body', 'Body:')!!}
-			    {!!Form::textarea('body', null, array('class' => 'form-control', ))!!}
+			    {!!Form::textarea('body', null, array('class' => 'form-control'))!!}
 
 			    {!!Form::submit('Create Post', array('class' => 'btn btn-primary btn-block', 'style' => 'margin-top:20px'))!!}
 			{!! Form::close() !!}
